@@ -1,0 +1,7 @@
+// 配置babel；presets => 功能的组合；plugins => 支持的功能
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ]
+}
