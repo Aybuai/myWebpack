@@ -3,6 +3,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const htmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -49,6 +50,25 @@ module.exports = {
     // 指纹策略不能应用在开发环境
     new MiniCssExtractPlugin({
       filename: "[name]_[contenthash:8].css",
+    }),
+    // new OptimizeCssAssetsPlugin({
+    //   assetNameRegExp: /\.css$/g,
+    //   // css处理器
+    //   cssProcessor: require("cssnano"),
+    // }),
+    new htmlWebpackPlugin({
+      template: path.join(__dirname, "src/search.html"),
+      filename: "search.html",
+      chunks: ["search"],
+      inject: true,
+      minify: {
+        html5: true,
+        collapseInlineTagWhitespace: true,
+        preserveLineBreaks: false,
+        minifyCSS: true,
+        minifyJS: true,
+        removeComments: false,
+      },
     }),
   ],
 };
