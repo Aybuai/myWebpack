@@ -1,6 +1,7 @@
 "use strict";
 
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   entry: {
@@ -12,7 +13,8 @@ module.exports = {
     // 多入口文件的话，把固定导出文件名改成 [name].js 用[]占位符去分别生成输出文件
     filename: "[name].js",
   },
-  mode: "production",
+  //  webpack dev server 只在开发环境下使用
+  mode: "development",
   module: {
     rules: [
       {
@@ -42,5 +44,18 @@ module.exports = {
         ],
       },
     ],
+  },
+  plugins: [
+    // webpack自带的热更新插件
+    new webpack.HotModuleReplacementPlugin(),
+  ],
+  devServer: {
+    // 服务的文件目录
+    // webpack5 之前的写法
+    // contentBase: "./dist",
+    // webpack5 之后的写法
+    static: path.resolve(__dirname, 'dist'),
+    // 开启热更新
+    hot: true,
   },
 };
