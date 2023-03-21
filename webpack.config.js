@@ -28,6 +28,19 @@ module.exports = {
         test: /.less$/,
         use: ["style-loader", "css-loader", "less-loader"],
       },
+      {
+        test: /.(png|jpg|jpeg|gif)$/,
+        // use: "file-loader",
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              // 当图片大小小于10kb则进行base64转换
+              limit: 10240,
+            },
+          },
+        ],
+      },
     ],
   },
 };
