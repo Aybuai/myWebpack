@@ -37,6 +37,15 @@ module.exports = {
           "css-loader",
           "less-loader",
           "postcss-loader",
+          {
+            loader: "px2rem-loader",
+            options: {
+              // px转换rem的比例，一个rem相当于多少px
+              remUnit: 75,
+              // 转换小数点位数
+              remPrecision: 8,
+            },
+          },
         ],
       },
       {

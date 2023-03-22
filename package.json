@@ -29,6 +29,7 @@
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "postcss-loader": "^7.1.0",
     "postcss-preset-env": "^8.0.1",
+    "px2rem-loader": "^0.1.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "style-loader": "^3.3.2",
@@ -38,6 +39,7 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
+    "lib-flexible": "^0.3.2",
     "npm": "^9.6.2"
   },
   "browserslist": {
