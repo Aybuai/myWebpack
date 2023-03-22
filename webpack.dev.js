@@ -2,6 +2,7 @@
 
 const path = require("path");
 const webpack = require("webpack");
+// const { cleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -48,13 +49,14 @@ module.exports = {
   plugins: [
     // webpack自带的热更新插件
     new webpack.HotModuleReplacementPlugin(),
+    // new cleanWebpackPlugin(),
   ],
   devServer: {
     // 服务的文件目录
     // webpack5 之前的写法
     // contentBase: "./dist",
     // webpack5 之后的写法
-    static: path.resolve(__dirname, 'dist'),
+    static: path.resolve(__dirname, "dist"),
     // 开启热更新
     hot: true,
   },

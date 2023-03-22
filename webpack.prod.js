@@ -14,6 +14,8 @@ module.exports = {
     path: path.join(__dirname, "dist"),
     // 多入口文件的话，把固定导出文件名改成 [name].js 用[]占位符去分别生成输出文件
     filename: "[name]_[chunkhash:8].js",
+    // 自动清除output文件
+    clean: true,
   },
   mode: "production",
   module: {
@@ -30,7 +32,12 @@ module.exports = {
       },
       {
         test: /.less$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "less-loader",
+          "postcss-loader",
+        ],
       },
       {
         test: /.(png|jpg|jpeg|gif)$/,
